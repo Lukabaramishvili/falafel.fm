@@ -12,7 +12,7 @@ const Archive = () => {
             {mixes?.map(({ key, id, name }) => (
                 <li key={key} className="ph3 ph4-l">
                     <PlayMix id={id}>
-                        <div className="pv3 bb b--light-gray flex justify-between items-center">
+                        <div className="pv3 bb b--light-gray flex justify-between items-center archive-container">
                             <h1 className="f6 mv0 black ttu biryani pr2">{name}</h1>
                             <PlayButton />
                         </div>

@@ -75,6 +75,10 @@ body {
 	height: 36px;
 }
 
+.archive-container {
+	cursor: pointer;
+}
+
 .mixes .play-button {
 	width: 48px;
 	height: 48px;
