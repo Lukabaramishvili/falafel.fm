@@ -29,7 +29,6 @@ const FeaturedMix = () => {
 				? ([featMix] = mixes.filter((mix) => mix.id === featuredMix))
 				: ([featMix] = mixes.filter((mix) => mix.id === currentMix))
 
-			// this makes a variable from our first mix in the array
 			const [firstMix = {}] = mixes
 
 			return setFeatMix(featMix || firstMix)

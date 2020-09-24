@@ -45,8 +45,6 @@ const Show = () => {
 
 	const { description, play_count, created_time, audio_length, tags, id } = mix
 
-	// when we mount our show component, we want to set
-	// the featuredMix to be the currently viewed mix
 	useEffect(() => {
 		setFeaturedMix(id)
 

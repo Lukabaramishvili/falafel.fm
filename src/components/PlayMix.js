@@ -7,9 +7,6 @@ const PlayMix = ({ id, children, className }) => {
 	const { playMix, currentMix, playing } = useContext(MixContext)
 
 	return (
-		// when our currently playing mix equals the id of the mix
-		// that this component refers to, we will add a class name
-		// of 'playing' or 'loading'
 		<div
 			className={classNames({
 				[className]: className,
