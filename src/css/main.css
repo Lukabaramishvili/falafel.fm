@@ -57,8 +57,8 @@ body {
 }
 
 .playing .play-button:not(:hover) {
-	background-image: url('../images/bars.svg');
-	background-size: 37% !important;
+  background-image: url('../images/bars.svg');
+  background-size: 37% !important;
   background-position-x: center;
   background-color: #fd9427;
 }
