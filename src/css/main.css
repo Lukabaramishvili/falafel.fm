@@ -22,38 +22,38 @@ body {
 }
 
 .anton {
-	font-family: 'Anton', sans-serif;
+  font-family: 'Anton', sans-serif;
 }
 
 .orange {
-	color: #fd9427;
+  color: #fd9427;
 }
 
 .mix-title {
-	font-size: 4rem;
-	line-height: 1;
-	letter-spacing: 0.05em;
+  font-size: 4rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
 }
 
 .play-button {
-	background-color: #fd9427;
-	border-radius: 100%;
-	transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	width: 80px;
-	height: 80px;
-	background-image: url('../images/play-button.svg');
-	background-size: 25% !important;
-	background-position-x: 55%;
+  background-color: #fd9427;
+  border-radius: 100%;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 80px;
+  height: 80px;
+  background-image: url('../images/play-button.svg');
+  /* background-size: 25% !important; */
+  background-position-x: 55%;
 }
 
 .play-button:hover {
-	box-shadow: 0 0 0.5rem rgba(50, 50, 50, 0.25);
-	transform: scale(1.25);
+  box-shadow: 0 0 0.5rem rgba(50, 50, 50, 0.25);
+  transform: scale(1.25);
 }
 
 .playing .play-button:hover {
-	background-image: url('../images/pause-button.svg');
-	background-position-x: center;
+  background-image: url('../images/pause-button.svg');
+  background-position-x: center;
 }
 
 .playing .play-button:not(:hover) {
@@ -64,85 +64,89 @@ body {
 }
 
 .loading .play-button {
-	background-image: url('../images/loader.svg');
-	background-size: 55% !important;
+  background-image: url('../images/loader.svg');
+  background-size: 55% !important;
   background-position-x: center;
   background-color: #fd9427;
 }
 
 .archive .play-button {
-	width: 36px;
-	height: 36px;
+  width: 36px;
+  height: 36px;
 }
 
 .archive-container {
-	cursor: pointer;
+  cursor: pointer;
+}
+
+.archive-image {
+  padding-right: 20px;
 }
 
 .mixes .play-button {
-	width: 48px;
-	height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .mixes .playing .play-button {
-	width: 72px;
-	height: 72px;
+  width: 72px;
+  height: 72px;
 }
 
 .button {
-	border: none;
-	outline: none;
+  border: none;
+  outline: none;
 }
 
 .mixes {
-	padding-bottom: 5rem;
+  padding-bottom: 5rem;
 }
 
 .mix {
-	width: 100%;
+  width: 100%;
 }
 
 .nav-link {
-	border-bottom: solid 3px rgba(0, 0, 0, 0);
+  border-bottom: solid 3px rgba(0, 0, 0, 0);
 }
 
 .nav-link.active {
-	color: #000;
-	border-bottom-color: #000;
+  color: #000;
+  border-bottom-color: #000;
 }
 
 .mix-overlay:after {
-	content: '';
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .lh-1 {
-	line-height: 1;
+  line-height: 1;
 }
 
 @media (min-width: 480px) {
-	.mix {
-		width: calc(50% - 1rem);
-	}
+  .mix {
+    width: calc(50% - 1rem);
+  }
 
-	.mix:nth-of-type(even) {
-		transform: translateY(4rem);
-	}
+  .mix:nth-of-type(even) {
+    transform: translateY(4rem);
+  }
 }
 
 @media (max-width: 480px) {
-	.play-button {
-		width: 64px;
-		height: 64px;
-	}
+  .play-button {
+    width: 64px;
+    height: 64px;
+  }
 
-	.mix-title {
-		font-size: 2.5rem;
-	}
+  .mix-title {
+    font-size: 2.5rem;
+  }
 }
