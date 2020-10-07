@@ -8,6 +8,7 @@ import Archive from './Archive';
 import About from './About';
 import Show from './Show';
 import Player from './Player';
+import Suggest from './Suggest';
 
 const App = () => {
 	return (
@@ -29,6 +30,9 @@ const App = () => {
 							</Route>
 							<Route path="/show/:slug">
 								<Show />
+							</Route>
+							<Route path="/suggest">
+								<Suggest />
 							</Route>
 						</Switch>
 					</div>
