@@ -6,8 +6,6 @@ import MixContext from '../context/mix-context';
 
 const Archive = () => {
     const { mixes } = useContext(MixContext)
-    
-    console.log(mixes)
 
     return (
         <ul className="list pl0 archive mv0 pad-bottom">

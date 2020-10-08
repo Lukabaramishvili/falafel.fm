@@ -13,9 +13,12 @@ const About = () => {
 					Falafel.fm features the latest and greatest in grooves, beats and
 					world music.
 				</p>
-				<p className="mb4">
-					Whether you’re into hip hop, trip hop, classic jazz, fusion jazz, afro
+				<p className="mb3">
+					Whether you’re into funk, soul, classic jazz, fusion jazz, afro
 					beat or break beat… we got you covered!
+				</p>
+				<p className="mt0">
+					Currated by me (Luka.B)
 				</p>
 			</div>
 
