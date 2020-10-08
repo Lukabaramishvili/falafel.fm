@@ -4,15 +4,15 @@ import './css/main.css';
 import 'tachyons';
 import App from './components/App';
 import { BrowserRouter as Router } from "react-router-dom";
-import * as serviceWorker from './serviceWorker';
+import { FirestoreProvider } from 'react-firestore';
+import { firebase } from './firebase';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
-    <App />
-    </Router>
-  </React.StrictMode>,
+    <FirestoreProvider firebase={firebase}>
+      <App />
+    </FirestoreProvider>
+    </Router>,
   document.getElementById('root')
 );
 
-serviceWorker.unregister();
