@@ -29,11 +29,11 @@ const Suggest = () => {
         <form onSubmit={addToDatabase} className="add-item-form">
             <label htmlFor="url-item">url</label>
                 <input
-                    name="list-item"
-                    id="list-item"
+                    name="url-item"
+                    id="url-item"
                     onChange={handleInputChange}
                     value={urlItem}
-                    placeholder="Add Url"
+                    placeholder="Add url.."
                 />
             <button className="add-item-btn">Add</button>
         </form>
