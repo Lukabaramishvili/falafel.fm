@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import GlobalState from '../context/GlobalState';
 import FeaturedMix from './FeaturedMix'
@@ -8,8 +8,15 @@ import Archive from './Archive';
 import About from './About';
 import Show from './Show';
 import Player from './Player';
+import ReactGA from "react-ga";
 
 const App = () => {
+
+	useEffect(() => {
+		ReactGA.initialize('UA-181645767-1');
+		ReactGA.pageview(window.location.pathname);
+	  })
+
 	return (
 		<GlobalState>
 			<Route>
