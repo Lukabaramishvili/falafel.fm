@@ -11,12 +11,14 @@ import Player from './Player';
 import Suggest from './Suggest';
 import ReactGA from "react-ga";
 
-    useEffect(() => {
-        ReactGA.initialize('UA-181645767-1');
-        ReactGA.pageview(window.location.pathname);
-    })
 
 const App = () => {
+
+    useEffect(() => {
+    ReactGA.initialize('UA-181645767-1');
+    ReactGA.pageview(window.location.pathname);
+})
+
    return (
     <GlobalState>
         <Route>
