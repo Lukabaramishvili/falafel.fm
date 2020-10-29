@@ -9,10 +9,12 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.15.0",
     "firebase": "^7.22.1",
+    "history": "^5.0.0",
     "react": "^16.13.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
     "react-firestore": "^1.0.1",
+    "react-ga": "^3.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "tachyons": "^4.12.0"
