@@ -5,6 +5,11 @@ The project was built with React, utilizing [Mixcloud API](https://www.mixcloud.
 
 Live Demo: https://falafelfm.netlify.app/
 
+## Tech Stack
+- React
+- Firebase
+- Tachyons (CSS)
+
 ## Authors
 
 Luka Baramishvili
