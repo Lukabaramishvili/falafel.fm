@@ -7,13 +7,9 @@ Live Demo: https://falafelfm.netlify.app/
 
 ## Tech Stack
 - React
-- Firebase
+- Firestore Database
 - Tachyons (CSS)
 
 ## Authors
 
 Luka Baramishvili
-
-## Acknowledgement
-
-SuperHi
