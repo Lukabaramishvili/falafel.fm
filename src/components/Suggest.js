@@ -58,7 +58,7 @@ const Suggest = () => {
                 <p className="mt0 mb4">
                   After you submit your link, we will listen and see if the music fits the overall mood of the radio.
                 </p>
-                <button className="add-button add-button-small add-button-outline register-button">Submit</button>
+                <button className="add-button add-button-small add-button-outline register-button">Add</button>
               </div>
               {/* Form */}
               <form
