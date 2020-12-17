@@ -8,7 +8,7 @@ const About = () => {
 
 	return (
 		<div className="ph3 ph4-l pad-bottom">
-			<div className="measure center lh-copy">
+			<div className="measure lh-copy">
 				<p className="mt0">
 					Falafel.fm features the latest and greatest in grooves, beats and
 					world music.
@@ -17,7 +17,7 @@ const About = () => {
 					Whether you’re into funk, soul, classic jazz, fusion jazz, afro
 					beat or break beat… we got you covered!
 				</p>
-				<p className="mt0">
+				<p className="mt0 b orange">
 					Currated by me (Luka.B)
 				</p>
 			</div>
