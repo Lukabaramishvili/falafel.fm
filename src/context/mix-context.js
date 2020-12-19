@@ -2,6 +2,7 @@ import { createContext } from 'react';
 
 const MixContext = createContext({
 	mixesIds: [
+		'/DubbelDee/four2six-3/',
 		'/geology365/400-years-voices-scars-ge-ology-mix-for-stamp-the-wax/',
 		'/themixtapeclub/backatcha-by-aidan-leacy/',
 		'/thelotradio/love-injection-with-barbie-paul-the-lot-radio-09-19-2020/',
@@ -14,7 +15,6 @@ const MixContext = createContext({
 		'/NTSRadio/foreign-hour-family-edition-4th-october-2017/',
 		'/adamkvasnica3/trip-hop-for-jazz-junkies/',
 		'/NTSRadio/floating-points-four-tet-caribou-23rd-march-2015/',
-		'/NTSRadio/bonobo-24th-june-2015/',
 		'/NTSRadio/mount-kimbie-james-blake-8th-september-2015/',
 	],
 	mixes: [],
