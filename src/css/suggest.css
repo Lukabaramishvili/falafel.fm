@@ -3,6 +3,12 @@
     --black: #000000;
 }
 
+.suggestion-title {
+    font-family: 'Biryani', sans-serif;
+    text-transform: uppercase;
+    margin: 5px 5px;
+}
+
 input {
     border: none;
     line-height: 1.5;
@@ -22,9 +28,8 @@ input::placeholder {
     background-color: #ffe6dd;
 }
 
-.register {
+.suggest-form {
     display: grid;
-    /* place-items: center; */
     overflow: hidden;
 }
 
@@ -67,7 +72,10 @@ input::placeholder {
     color: var(--orange);
 }
 
-/* here we lock the form when it's submitting */
+.add-button:hover {
+    background-color: var(--orange);
+    color: white;
+}
 
 .font-fields {
     transition: opacity 0.5s ease;
@@ -94,11 +102,11 @@ input::placeholder {
     margin-left: -20px;
     margin-top: -20px;
     z-index: 10;
-    box-shadow: 0 0 11px 0px rgb(254, 145, 127);
+    /* box-shadow: 0 0 11px 0px rgb(254, 145, 127); */
   }
 
   .processing .spinner {
-      opacity: 1;
+    opacity: 1;
   }
   
   @keyframes sk-rotateplane {
