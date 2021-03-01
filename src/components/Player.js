@@ -10,6 +10,7 @@ const Player = () => {
 	const playerRef = useRef()
 
 	useEffect(() => {
+
 		const widget = Mixcloud.PlayerWidget(playerRef.current)
 
 		setCurrentMix(playerRef.current.id)

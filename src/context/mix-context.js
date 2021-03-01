@@ -2,7 +2,6 @@ import { createContext } from 'react';
 
 const MixContext = createContext({
 	mixesIds: [
-		'/DubbelDee/four2six-3/',
 		'/geology365/400-years-voices-scars-ge-ology-mix-for-stamp-the-wax/',
 		'/themixtapeclub/backatcha-by-aidan-leacy/',
 		'/thelotradio/love-injection-with-barbie-paul-the-lot-radio-09-19-2020/',
