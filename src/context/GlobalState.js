@@ -1,95 +1,95 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from "react";
 
-import MixContext from './mix-context';
+import MixContext from "./mix-context";
 
 const GlobalState = (props) => {
-	const { mixesIds } = useContext(MixContext)
+  const { mixesIds } = useContext(MixContext);
 
-	const [mixes, setMixes] = useState([])
-	const [widget, setWidget] = useState({})
-	const [currentMix, setCurrentMix] = useState('')
-	const [playing, setPlaying] = useState(false)
-	const [featuredMix, setFeaturedMix] = useState('')
+  const [mixes, setMixes] = useState([]);
+  const [widget, setWidget] = useState({});
+  const [currentMix, setCurrentMix] = useState("");
+  const [playing, setPlaying] = useState(false);
+  const [featuredMix, setFeaturedMix] = useState("");
 
-	const getMixFromSlug = async (mixes, slug) => {
-		const result = await mixes.filter((mix) => mix.slug === slug)
+  const getMixFromSlug = async (mixes, slug) => {
+    const result = await mixes.filter((mix) => mix.slug === slug);
 
-		if (result) return result[0]
-	}
+    if (result) return result[0];
+  };
 
-	const playMix = (mixName) => {
-		if (!widget) return
+  const playMix = (mixName) => {
+    if (!widget) return;
 
-		if (currentMix === mixName) {
-			widget.togglePlay()
+    if (currentMix === mixName) {
+      widget.togglePlay();
 
-			widget.events.pause.on(() => setPlaying(false))
-			widget.events.play.on(() => setPlaying(true))
+      widget.events.pause.on(() => setPlaying(false));
+      widget.events.play.on(() => setPlaying(true));
 
-			return
-		}
+      return;
+    }
 
-		if (currentMix !== mixName) {
-			setCurrentMix(mixName)
+    if (currentMix !== mixName) {
+      setCurrentMix(mixName);
 
-			widget.load(mixName, false)
+      widget.load(mixName, false);
 
-			setPlaying(false)
+      setPlaying(false);
 
-			widget.events.pause.on(() => setPlaying(false))
-			widget.events.play.on(() => setPlaying(true))
+      widget.events.pause.on(() => setPlaying(false));
+      widget.events.play.on(() => setPlaying(true));
 
-			return
-		}
-	}
+      return;
+    }
+  };
 
-	useEffect(() => {
-		const fetchingMixes = (mixesIds) => {
-			return Promise.all(
-				mixesIds.map((id) =>
-					fetch(`https://api.mixcloud.com${id}`)
-						.then((response) => response.json())
-						.then((data) => data)
-				)
-			)
-		}
+  useEffect(() => {
+    const fetchingMixes = (mixesIds) => {
+      return Promise.all(
+        mixesIds.map((id) =>
+          fetch(`https://api.mixcloud.com${id}`)
+            .then((response) => response.json())
+            .then((data) => data)
+        )
+      );
+    };
 
-		const updateWithIds = (mixes) => {
-			return mixes.map((mix) => ({
-				...mix,
-				id: mix.key,
-			}))
-		}
+    const updateWithIds = (mixes) => {
+      return mixes.map((mix) => ({
+        ...mix,
+        id: mix.key
+      }));
+    };
 
-		const setData = async (mixesIds) => {
-			const mixesWithoutIds = await fetchingMixes(mixesIds)
-			const mixesWithIds = await updateWithIds(mixesWithoutIds)
+    const setData = async (mixesIds) => {
+      const mixesWithoutIds = await fetchingMixes(mixesIds);
+      const mixesWithIds = await updateWithIds(mixesWithoutIds);
 
-			return setMixes(mixesWithIds)
-		}
+      return setMixes(mixesWithIds);
+    };
 
-		setData(mixesIds)
-	}, [mixesIds, setMixes])
+    setData(mixesIds);
+  }, [mixesIds, setMixes]);
 
-	return (
-		<MixContext.Provider
-			value={{
-				mixes,
-				playMix,
-				setPlaying,
-				setCurrentMix,
-				setWidget,
-				playing,
-				currentMix,
-				widget,
-				getMixFromSlug,
-				featuredMix,
-				setFeaturedMix,
-			}}
-		>
-			{props.children}
-		</MixContext.Provider>
-	)
-}
+  return (
+    <MixContext.Provider
+      value={{
+        mixes,
+        playMix,
+        setPlaying,
+        setCurrentMix,
+        setWidget,
+        playing,
+        currentMix,
+        widget,
+        getMixFromSlug,
+        featuredMix,
+        setFeaturedMix
+      }}
+    >
+      {props.children}
+    </MixContext.Provider>
+  );
+};
 
 export default GlobalState;
