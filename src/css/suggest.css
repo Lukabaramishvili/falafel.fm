@@ -1,0 +1,159 @@
+:root {
+  --orange: #ff3c15;
+  --black: #000000;
+}
+
+.suggestion-title {
+  font-family: "Biryani", sans-serif;
+  text-transform: uppercase;
+  margin: 5px 5px;
+}
+
+input {
+  border: none;
+  line-height: 1.5;
+  font-size: 16px;
+  height: 48px;
+  width: 95%;
+  padding: 0 12px;
+  outline: none;
+  color: #32325d;
+}
+
+input::placeholder {
+  color: #aab7c4;
+}
+
+.bc {
+  background-color: #ffe6dd;
+}
+
+.suggest-form {
+  display: grid;
+  overflow: hidden;
+}
+
+.front,
+.back {
+  grid-area: 1/1;
+}
+
+.front {
+  transition: transform 0.5s ease;
+}
+
+.front.slide-up {
+  transform: translateY(-100%);
+}
+
+.add-button {
+  cursor: pointer;
+  outline: none;
+}
+
+.add-button {
+  display: inline-block;
+  background-color: var(--orange);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  padding: 24px 72px;
+}
+
+.add-button-small {
+  font-size: 14px;
+  padding: 12px 20px;
+}
+
+.add-button-outline {
+  background-color: transparent;
+  border: solid 2px var(--orange);
+  color: var(--orange);
+}
+
+.add-button:hover {
+  background-color: var(--orange);
+  color: white;
+}
+
+.font-fields {
+  transition: opacity 0.5s ease;
+}
+
+.processing .form-fields {
+  opacity: 0.5;
+  /* disable the interaction with the form when it's submitting */
+  pointer-events: none;
+}
+
+.spinner {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  width: 40px;
+  height: 40px;
+  background-color: var(--orange);
+
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  z-index: 10;
+  /* box-shadow: 0 0 11px 0px rgb(254, 145, 127); */
+}
+
+.processing .spinner {
+  opacity: 1;
+}
+
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px auto;
+  text-align: center;
+}
+
+.success-message {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 20px 0 0;
+}
+
+.success-message-sub {
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.archive-link {
+  text-decoration: none;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: #777;
+}
+
+@media (max-width: 480px) {
+  .success-message {
+    font-size: 18px;
+  }
+  .success-message-sub {
+    font-size: 14px;
+  }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}

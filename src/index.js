@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/main.css';
+import './css/suggest.css';
 import 'tachyons';
 import App from './components/App';
 import ReactGA from 'react-ga';
