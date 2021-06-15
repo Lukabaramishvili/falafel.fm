@@ -52,7 +52,7 @@ const Player = () => {
       sandbox="allow-scripts allow-same-origin"
       width="100%"
       height="60"
-      className="db fixed bottom-0 z-5"
+      className="player db fixed bottom-0 z-5"
       src="%2Fthemixtapeclub%2Fthe-mixtape-shop-week-18b-2021%2F"
       id="/themixtapeclub/the-mixtape-shop-week-18b-2021/"
     ></iframe>
