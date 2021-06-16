@@ -53,8 +53,8 @@ const Player = () => {
       width="100%"
       height="60"
       className="player db fixed bottom-0 z-5"
-      src="%2Fthemixtapeclub%2Fthe-mixtape-shop-week-18b-2021%2F"
-      id="/themixtapeclub/the-mixtape-shop-week-18b-2021/"
+      src="%2FBrilliantCorners%2Fdonna-leake-pol-valls-050118%2F"
+      id="/BrilliantCorners/donna-leake-pol-valls-050118/"
     ></iframe>
   );
 };
