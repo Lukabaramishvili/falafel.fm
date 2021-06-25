@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { db } from "../firebase";
 // import SuggestedLinks from "./SuggestedLinks";
+import generateToken from "../lib/tokens";
+import { setToken, checkToken, getToken } from "../lib/tokenServices";
+
 import { ReactComponent as Happy } from "../images/happy-face.svg";
 
 const Success = () => (
@@ -29,6 +32,7 @@ const Suggest = () => {
   const [showForm, setShowForm] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [hasToken, setHasToken] = useState(checkToken());
 
   const handleInputChange = (e) => {
     setEnteredValue({ ...enteredValue, [e.target.name]: e.target.value });
@@ -44,6 +48,7 @@ const Suggest = () => {
       .add({
         name: enteredValue.name,
         link: enteredValue.link,
+        token: getToken(),
         date: new Date()
       })
       .then((res) => {
@@ -61,6 +66,15 @@ const Suggest = () => {
 
   const slideUp = () => {
     setShowForm("slide-up");
+  };
+
+  const handleSetToken = () => {
+    if (getToken()) return;
+    else {
+      const token = generateToken();
+      setToken(token);
+      setHasToken(true);
+    }
   };
 
   return (
@@ -120,7 +134,10 @@ const Suggest = () => {
                   required
                 />
                 <div className="pt2">
-                  <button className="add-button add-button-small">
+                  <button
+                    onClick={handleSetToken}
+                    className="add-button add-button-small"
+                  >
                     Submit
                   </button>
                 </div>
@@ -129,7 +146,7 @@ const Suggest = () => {
           </div>
         </div>
       )}
-      {/* <SuggestedLinks /> */}
+      {/* {hasToken && <SuggestedLinks />} */}
     </div>
   );
 };
