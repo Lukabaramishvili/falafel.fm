@@ -17,7 +17,7 @@ const About = () => {
           Whether you’re into funk, soul, classic jazz, fusion jazz, afro beat
           or break beat… we got you covered!
         </p>
-        <p className="mt0 b i">Currated by me (Luka.B)</p>
+        <p className="mt0 b i">Curated by me (Luka.B)</p>
       </div>
 
       <div>
