@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="black mb5 pt5">
       <h1 className="ttu f3 tracked-mega anton tc mt0 mb3">
-        <NavLink to="/" className="link black pride">
+        <NavLink to="/" className="link black">
           Falafel.fm
         </NavLink>
       </h1>

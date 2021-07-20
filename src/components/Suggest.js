@@ -1,25 +1,11 @@
 import React, { useState } from "react";
 import { db } from "../firebase";
+import { fromMilliSecToHours, getUTCNowInMilliSec } from "../lib/helpers";
 // import SuggestedLinks from "./SuggestedLinks";
+import Success from "./Success";
+import Form from "./Form";
 import generateToken from "../lib/tokens";
 import { setToken, checkToken, getToken } from "../lib/tokenServices";
-
-import { ReactComponent as Happy } from "../images/happy-face.svg";
-
-const Success = () => (
-  <div className="pa4 bc mb2">
-    <div className="success-container bc orange">
-      <Happy />
-      <h4 className="success-message">We are excited!</h4>
-      <p className="success-message-sub">
-        We will listen to your suggestion. Meanwhile, check out{" "}
-        <a href="/archive" className="archive-link">
-          Falafel Archive
-        </a>
-      </p>
-    </div>
-  </div>
-);
 
 const Suggest = () => {
   const userInput = {
@@ -77,11 +63,13 @@ const Suggest = () => {
     }
   };
 
+  // const isChecked = fromMilliSecToHours(getUTCNowInMilliSec() - timeClicked) < 24;
+
   return (
     <div className="ph3 ph4-l pad-bottom">
       <h2 className="suggestion-title">Suggest</h2>
       {showSuccess ? (
-        <Success />
+        <Success hasToken={hasToken} />
       ) : (
         <div className="flex flex-wrap mb2 mb3-ns">
           <div className="suggest-form relative bc orange">
@@ -93,56 +81,35 @@ const Suggest = () => {
               <p className="mt0 mb4">
                 Suggestion is the most exciting part of Falafel.fm. Here you can
                 provide a link of the mix or the set that you recently listened
-                and liked.
+                and liked. <em>(You can add one link per day)</em>
               </p>
               <p className="mt0 mb4">
                 After you submit your link, we will listen and see if the music
                 fits the overall mood of the radio.
               </p>
-              <button
-                onClick={slideUp}
-                className="add-button add-button-small add-button-outline"
-              >
-                Add Link
-              </button>
+              {hasToken ? (
+                <>
+                  <em className="disable-message">
+                    You have already added one link today. The form will be
+                    disabled next 24 hrs.
+                  </em>
+                </>
+              ) : (
+                <button
+                  onClick={slideUp}
+                  className="add-button add-button-small add-button-outline"
+                >
+                  Add Link
+                </button>
+              )}
             </div>
-            <form
-              onSubmit={addToDatabase}
-              className={`back form z-1 pa4 ${
-                isSubmitting ? "processing" : ""
-              }`}
-            >
-              <div className="spinner"></div>
-              <h3 className="mt0 mb2 form-title">Your details</h3>
-              <div className="form-fields">
-                <input
-                  onChange={handleInputChange}
-                  name="name"
-                  className="mb2 db"
-                  placeholder="Name"
-                  id="name"
-                  value={enteredValue.name}
-                  required
-                />
-                <input
-                  onChange={handleInputChange}
-                  name="link"
-                  className="mb2 db"
-                  placeholder="Link"
-                  id="link"
-                  value={enteredValue.link}
-                  required
-                />
-                <div className="pt2">
-                  <button
-                    onClick={handleSetToken}
-                    className="add-button add-button-small"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </form>
+            <Form
+              addToDatabase={addToDatabase}
+              isSubmitting={isSubmitting}
+              handleInputChange={handleInputChange}
+              enteredValue={enteredValue}
+              handleSetToken={handleSetToken}
+            />
           </div>
         </div>
       )}

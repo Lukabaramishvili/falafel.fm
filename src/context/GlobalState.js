@@ -11,8 +11,8 @@ const GlobalState = (props) => {
   const [playing, setPlaying] = useState(false);
   const [featuredMix, setFeaturedMix] = useState("");
 
-  const getMixFromSlug = async (mixes, slug) => {
-    const result = await mixes.filter((mix) => mix.slug === slug);
+  const getMixFromSlug = (mixes, slug) => {
+    const result = mixes.filter((mix) => mix.slug === slug);
 
     if (result) return result[0];
   };

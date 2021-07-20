@@ -53,8 +53,8 @@ const Player = () => {
       width="100%"
       height="60"
       className="player db fixed bottom-0 z-5"
-      src="%2FBrilliantCorners%2Fdonna-leake-pol-valls-050118%2F"
-      id="/BrilliantCorners/donna-leake-pol-valls-050118/"
+      src="%2Fthelotradio%2Fcoloring-lessons-radio-with-musclecars-the-lot-radio-07-18-2021%2F"
+      id="/thelotradio/coloring-lessons-radio-with-musclecars-the-lot-radio-07-18-2021/"
     ></iframe>
   );
 };
