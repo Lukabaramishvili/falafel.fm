@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { db } from "../firebase";
-import { fromMilliSecToHours, getUTCNowInMilliSec } from "../lib/helpers";
-// import SuggestedLinks from "./SuggestedLinks";
+// import { fromMilliSecToHours, getUTCNowInMilliSec } from "../lib/helpers";
+import SuggestedLinks from "./SuggestedLinks";
 import Success from "./Success";
 import Form from "./Form";
+import { useCollection } from "react-firebase-hooks/firestore";
 import generateToken from "../lib/tokens";
-import { setToken, checkToken, getToken } from "../lib/tokenServices";
+import { setToken, checkToken, getToken, token } from "../lib/tokenServices";
+import SubmitButton from "./SubmitButton";
 
 const Suggest = () => {
   const userInput = {
@@ -13,6 +15,11 @@ const Suggest = () => {
     link: "",
     date: null
   };
+
+  const [value] = useCollection(
+    db.collection("Urls").where("token", "==", token),
+    { idField: "documentId" }
+  );
 
   const [enteredValue, setEnteredValue] = useState(userInput);
   const [showForm, setShowForm] = useState("");
@@ -35,7 +42,7 @@ const Suggest = () => {
         name: enteredValue.name,
         link: enteredValue.link,
         token: getToken(),
-        date: new Date()
+        lastSubmittedDate: new Date()
       })
       .then((res) => {
         setShowSuccess(true);
@@ -63,6 +70,28 @@ const Suggest = () => {
     }
   };
 
+  // const notPassed = () => {
+  //   if (value && value) {
+  //     let lastLink = value.docs[value.docs.length - 1];
+  //     const lastSubmittedDate = lastLink.data().lastSubmittedDate;
+  //     const day = 60 * 60 * 24;
+  //     const now = Date.now() / 1000;
+  //     return now - lastSubmittedDate.seconds < day;
+  //   }
+  // };
+
+  // console.log(notPassed());
+
+  // const checkOneDay = (lastSubmittedDate) => {
+  //   if (lastSubmittedDate === null) {
+  //     return false;
+  //   } else {
+  //     const day = 60 * 60 * 24;
+  //     const now = Date.now() / 1000;
+  //     return now - lastSubmittedDate.seconds < day;
+  //   }
+  // };
+
   // const isChecked = fromMilliSecToHours(getUTCNowInMilliSec() - timeClicked) < 24;
 
   return (
@@ -87,21 +116,11 @@ const Suggest = () => {
                 After you submit your link, we will listen and see if the music
                 fits the overall mood of the radio.
               </p>
-              {hasToken ? (
-                <>
-                  <em className="disable-message">
-                    You have already added one link today. The form will be
-                    disabled next 24 hrs.
-                  </em>
-                </>
-              ) : (
-                <button
-                  onClick={slideUp}
-                  className="add-button add-button-small add-button-outline"
-                >
-                  Add Link
-                </button>
-              )}
+              <SubmitButton
+                // notPassed={notPassed()}
+                hasToken={hasToken}
+                slideUp={slideUp}
+              />
             </div>
             <Form
               addToDatabase={addToDatabase}
@@ -113,7 +132,7 @@ const Suggest = () => {
           </div>
         </div>
       )}
-      {/* {hasToken && <SuggestedLinks />} */}
+      <SuggestedLinks />
     </div>
   );
 };

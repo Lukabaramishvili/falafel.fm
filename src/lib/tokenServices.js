@@ -10,4 +10,6 @@ const checkToken = () => {
   return getToken() !== null && getToken().length !== 0;
 };
 
-export { setToken, getToken, checkToken };
+const token = getToken();
+
+export { setToken, getToken, checkToken, token };
