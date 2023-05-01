@@ -1,7 +1,7 @@
 /* global Mixcloud*/
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext } from 'react';
 
-import MixContext from "../context/mix-context";
+import MixContext from '../context/mix-context';
 
 const Player = () => {
   const context = useContext(MixContext);
@@ -28,9 +28,9 @@ const Player = () => {
 
     const replaceSrc = (iframe) => {
       const srcBase =
-        "https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=";
+        'https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=';
 
-      iframe.removeAttribute("src");
+      iframe.removeAttribute('src');
 
       requestAnimationFrame(() => {
         iframe.src = srcBase + currentMix;
@@ -48,13 +48,13 @@ const Player = () => {
   return (
     <iframe
       ref={playerRef}
-      title="mixcloud-iframe"
-      sandbox="allow-scripts allow-same-origin"
-      width="100%"
-      height="60"
-      className="player db fixed bottom-0 z-5"
-      src="%2FBrilliantCorners%2Fdonna-leake-pol-valls-050118%2F"
-      id="/BrilliantCorners/donna-leake-pol-valls-050118/"
+      title='mixcloud-iframe'
+      sandbox='allow-scripts allow-same-origin'
+      width='100%'
+      height='60'
+      className='player db fixed bottom-0 z-5'
+      src='%2Fthemixtapeclub%2Frecord-club-039-keta%2F'
+      id='/themixtapeclub/record-club-039-keta/'
     ></iframe>
   );
 };

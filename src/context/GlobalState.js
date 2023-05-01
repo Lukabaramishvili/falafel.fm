@@ -1,15 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from 'react';
 
-import MixContext from "./mix-context";
+import MixContext from './mix-context';
 
 const GlobalState = (props) => {
   const { mixesIds } = useContext(MixContext);
 
   const [mixes, setMixes] = useState([]);
   const [widget, setWidget] = useState({});
-  const [currentMix, setCurrentMix] = useState("");
+  const [currentMix, setCurrentMix] = useState('');
   const [playing, setPlaying] = useState(false);
-  const [featuredMix, setFeaturedMix] = useState("");
+  const [featuredMix, setFeaturedMix] = useState('');
 
   const getMixFromSlug = async (mixes, slug) => {
     const result = await mixes.filter((mix) => mix.slug === slug);
@@ -57,7 +57,7 @@ const GlobalState = (props) => {
     const updateWithIds = (mixes) => {
       return mixes.map((mix) => ({
         ...mix,
-        id: mix.key
+        id: mix.key,
       }));
     };
 
@@ -84,7 +84,7 @@ const GlobalState = (props) => {
         widget,
         getMixFromSlug,
         featuredMix,
-        setFeaturedMix
+        setFeaturedMix,
       }}
     >
       {props.children}
